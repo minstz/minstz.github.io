@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CORS test</title>
+</head>
+<body>
+	<h1>CORS Test</h1>
+	<form name="corsform" action="#">
+		URL: <input type="text" name="url" id="input">	
+	</form>
+	<button type="button" onclick="cors()">Hack</button>
+	<div>Make sure you disable the chrome security blocker (shield at top left of address bar)</div>
+	<div id="demo"></div>
+
+<script>
+	function cors() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("demo").innerHTML = this.responseText;
+			}
+		};
+		url = document.forms["corsform"]["url"].value;
+		xhttp.open("GET", url, true);
+		xhttp.withCredentials = true;
+		xhttp.send();
+	}
+</script>
+
+</body>
+</html>

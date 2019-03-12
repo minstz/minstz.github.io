@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>Clickjack test page</title>
+   </head>
+   <body>
+   		<h1>Clickjack Test</h1>
+   		<form name="iframeform" action="#">
+   			URL: <input type="text" name="url">
+   		</form>
+   		<button type="button" onclick="createIframe()">Hack!</button>
+
+		<div id="result">
+		</div>
+
+     	<script type="text/javascript">
+     		function createIframe() {
+     			var url = document.forms["iframeform"]["url"].value;
+     			var iframe = '<iframe src="' + url + '" width="1000" height="500" sandbox="allow-scripts"></iframe>';
+     			document.getElementById("result").innerHTML = iframe;
+     		}
+     	</script>
+   </body>
+</html>

